@@ -2,9 +2,7 @@ package com.khushcoded.guess_the_character.controller;
 
 import com.khushcoded.guess_the_character.entity.Character;
 import com.khushcoded.guess_the_character.service.CharacterService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
@@ -21,5 +19,10 @@ public class CharacterController {
     @GetMapping
     public List<Character> getAllCharacters(){
         return characterService.getAllCharacters();
+    }
+
+    @PostMapping
+    public Character createCharacter(@RequestBody Character character) {
+        return characterService.createCharacter(character);
     }
 }
